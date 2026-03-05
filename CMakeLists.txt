@@ -8,41 +8,38 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(OpenSSL REQUIRED)
 find_package(OpenCV REQUIRED)
 
-# Consolidated header files
+# Header files
 set(HEADERS
     include/image_encryption.hpp
     include/image_handler.hpp
 )
 
-# CLI executable (includes all implementations)
+# Main executable
 add_executable(imgenc 
     src/main.cpp
-    ${HEADERS}
+    src/image_encryption.cpp
 )
 
 target_include_directories(imgenc PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${OpenCV_INCLUDE_DIRS}
 )
 
 target_link_libraries(imgenc PRIVATE
     OpenSSL::Crypto
-    opencv_core
-    opencv_imgcodecs
-    opencv_imgproc
+    ${OpenCV_LIBS}
 )
 
-# Tests (optional)
+# Testing (optional)
 enable_testing()
 
 find_package(GTest QUIET)
 if(GTest_FOUND)
-    # Simple test for header compilation
     add_executable(tests_minimal tests/test_minimal.cpp ${HEADERS})
     target_include_directories(tests_minimal PRIVATE include)
     target_link_libraries(tests_minimal PRIVATE
         OpenSSL::Crypto
-        opencv_core
-        opencv_imgcodecs
+        ${OpenCV_LIBS}
         GTest::gtest_main
     )
     add_test(NAME DirectHeaderCompilation COMMAND tests_minimal)
@@ -50,7 +47,7 @@ endif()
 
 # Installation
 install(TARGETS imgenc
-    EXECUTABLE DESTINATION bin
+    RUNTIME DESTINATION bin
 )
 
 install(DIRECTORY include/ DESTINATION include)

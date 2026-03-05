@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/ImageEncryption/build_vs2019/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -126,6 +126,26 @@ dmypy.json
 *~
 .DS_Store
 
+# Visual Studio
+.vs/
+*.pdb
+*.ilk
+*.exe
+*.obj
+*.idb
+
+# Build output
+build_vs2019/Debug/
+build_vs2019/Release/
+build_vs2019/MinSizeRel/
+build_vs2019/RelWithDebInfo/
+build_vs2019/imgenc.dir/
+build_vs2019/x64/
+build_vs2019/ALL_BUILD.dir/
+build_vs2019/INSTALL.dir/
+build_vs2019/RUN_TESTS.dir/
+build_vs2019/ZERO_CHECK.dir/
+
 # Test images and encrypted files
 *.enc
 test_images/

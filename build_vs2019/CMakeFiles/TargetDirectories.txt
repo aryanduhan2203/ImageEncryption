@@ -1,0 +1,5 @@
+C:/ImageEncryption/build_vs2019/CMakeFiles/imgenc.dir
+C:/ImageEncryption/build_vs2019/CMakeFiles/RUN_TESTS.dir
+C:/ImageEncryption/build_vs2019/CMakeFiles/INSTALL.dir
+C:/ImageEncryption/build_vs2019/CMakeFiles/ALL_BUILD.dir
+C:/ImageEncryption/build_vs2019/CMakeFiles/ZERO_CHECK.dir
